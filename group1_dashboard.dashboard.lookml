@@ -2,88 +2,8 @@
   title: 1조 대시보드
   layout: newspaper
   elements:
-  - name: 매출 순익
-    title: 매출 순익
-    model: group_1
-    explore: ss_order
-    type: looker_line
-    fields:
-    - ss_order.order_month
-    - ss_order.profit_sum
-    - ss_order.sales_sum
-    filters:
-      ss_order.order_year: 3 years
-      ss_order.profit_sum: NOT NULL
-    sorts:
-    - ss_order.order_month desc
-    limit: 500
-    query_timezone: Asia/Seoul
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    hide_legend: false
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    point_style: circle_outline
-    series_labels:
-      ss_order.profit_sum: profit
-      ss_order.sales_sum: sales
-    series_types:
-      ss_order.profit_sum: column
-    limit_displayed_rows: false
-    limit_displayed_rows_values:
-      show_hide: hide
-      first_last: first
-      num_rows: 0
-    y_axes:
-    - label: ''
-      orientation: left
-      series:
-      - id: ss_order.profit_sum
-        name: profit
-        axisId: ss_order.profit_sum
-      showLabels: true
-      showValues: true
-      unpinAxis: false
-      tickDensity: default
-      type: linear
-    - label:
-      orientation: right
-      series:
-      - id: ss_order.sales_sum
-        name: sales
-        axisId: ss_order.sales_sum
-      showLabels: true
-      showValues: true
-      unpinAxis: false
-      tickDensity: default
-      type: linear
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    x_axis_datetime_label: "%Y년%m월"
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    reference_lines: []
-    swap_axes: false
-    show_null_points: false
-    interpolation: linear
-    discontinuous_nulls: false
-    row: 0
-    col: 0
-    width: 8
-    height: 6
-  - name: 판매 TOP 10
-    title: 판매 TOP 10
+  - title: 판매 TOP 10
+    name: 판매 TOP 10
     model: group_1
     explore: ss_items
     type: looker_bar
@@ -100,6 +20,8 @@
       palette_id: ccba75a3-58c7-4b9c-a931-4ffc59e79cba
       options:
         steps: 5
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 102
     show_value_labels: false
     label_density: 25
     legend_position: center
@@ -127,12 +49,13 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    listen: {}
     row: 0
-    col: 8
+    col: 16
     width: 8
     height: 6
-  - name: 지역별 카운트
-    title: 지역별 카운트
+  - title: 지역별 카운트
+    name: 지역별 카운트
     model: group_1
     explore: ss_poi
     type: looker_geo_coordinates
@@ -173,17 +96,201 @@
     quantize_map_value_colors: false
     reverse_map_value_colors: false
     series_types: {}
+    listen: {}
     row: 6
     col: 0
-    width: 16
-    height: 6
-  - name: TOP10 카테고리 매출 비율
-    title: TOP10 카테고리 매출 비율
+    width: 8
+    height: 8
+  - title: TOP10 카테고리 매출 비율
+    name: TOP10 카테고리 매출 비율
     model: group_1
     explore: ss_all
     type: looker_pie
-    fields: [ss_order.sales_sum, ss_items.subcategory]
-    sorts: [ss_order.sales_sum desc]
+    fields:
+    - ss_order.sales_sum
+    - ss_items.subcategory
+    sorts:
+    - ss_order.sales_sum desc
     limit: 10
     query_timezone: Asia/Seoul
     series_types: {}
+    listen: {}
+    row: 6
+    col: 16
+    width: 8
+    height: 8
+  - title: 주별 매출 추이
+    name: 주별 매출 추이
+    model: group_1
+    explore: ss_all
+    type: looker_bar
+    fields:
+    - ss_poi.state
+    - ss_order.profit_sum
+    - ss_order.sales_sum
+    sorts:
+    - ss_order.profit_sum desc
+    limit: 500
+    query_timezone: Asia/Seoul
+    stacking: ''
+    color_application:
+      collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
+      palette_id: fb7bb53e-b77b-4ab6-8274-9d420d3d73f3
+      options:
+        steps: 5
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 205
+    show_value_labels: false
+    label_density: 25
+    label_color: []
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    point_style: circle
+    series_colors:
+      ss_order.sales_sum: "#3EB0D5"
+      ss_order.profit_sum: "#B32F37"
+    series_labels:
+      ss_order.profit_sum: 순이익
+      ss_order.sales_sum: 매출
+    series_types: {}
+    limit_displayed_rows: false
+    y_axes:
+    - label: 순이익
+      orientation: top
+      series:
+      - id: ss_order.profit_sum
+        name: Ss Order Profit Sum
+        axisId: ss_order.profit_sum
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 222
+      showLabels: true
+      showValues: true
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: group_1/group1_dashboard.dashboard.lookml
+      __LINE_NUM: 222
+    - label: 매출
+      orientation: bottom
+      series:
+      - id: ss_order.sales_sum
+        name: Ss Order Sales Sum
+        axisId: ss_order.sales_sum
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 225
+      showLabels: true
+      showValues: true
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: group_1/group1_dashboard.dashboard.lookml
+      __LINE_NUM: 225
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    x_axis_label: ''
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    listen: {}
+    row: 0
+    col: 8
+    width: 8
+    height: 14
+  - title: 매출 순익
+    name: 매출 순익
+    model: group_1
+    explore: ss_order
+    type: looker_line
+    fields:
+    - ss_order.order_month
+    - ss_order.profit_sum
+    - ss_order.sales_sum
+    filters:
+      ss_order.order_year: 3 years
+      ss_order.profit_sum: NOT NULL
+    sorts:
+    - ss_order.order_month desc
+    limit: 500
+    stacking: ''
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    hide_legend: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    point_style: circle_outline
+    series_labels:
+      ss_order.profit_sum: profit
+      ss_order.sales_sum: sales
+    series_types:
+      ss_order.sales_sum: column
+    limit_displayed_rows: false
+    limit_displayed_rows_values:
+      show_hide: hide
+      first_last: first
+      num_rows: 0
+    y_axes:
+    - label: ''
+      orientation: left
+      series:
+      - id: ss_order.sales_sum
+        name: sales
+        axisId: ss_order.sales_sum
+      showLabels: true
+      showValues: true
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+    - label:
+      orientation: right
+      series:
+      - id: ss_order.profit_sum
+        name: profit
+        axisId: ss_order.profit_sum
+      showLabels: true
+      showValues: true
+      unpinAxis: false
+      tickDensity: default
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: 주문 월
+    show_x_axis_ticks: true
+    x_axis_datetime_label: "%Y년%m월"
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    reference_lines: []
+    swap_axes: false
+    show_null_points: false
+    interpolation: linear
+    discontinuous_nulls: false
+    query_timezone: Asia/Seoul
+    listen: {}
+    row: 0
+    col: 0
+    width: 8
+    height: 6
