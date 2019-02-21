@@ -190,4 +190,31 @@ view: ss_order {
     ]
   }
 
+  dimension: ship_order_date {
+    type: number
+    sql: DATEDIFF(${ship_date},${order_date});;
+    html:
+      {% if {{value}} <= 3 %}
+    <p style="background-color:blue; color:white;">{{rendered_value}}</p>
+    {% elsif {{value}} <= 4 %}
+    <p style="background-color:orange; color:white;">{{rendered_value}}</p>
+    {% else %}
+    <p style="background-color:red; color:white;">{{rendered_value}}</p>
+    {% endif %};;
+  }
+
+  measure: ship_order_date_avg {
+    type: average
+    sql: ${ship_order_date} ;;
+    value_format: "0.00"
+    html:
+    {% if {{value}} <= 3 %}
+    <p style="background-color:blue; color:white;">{{rendered_value}}</p>
+    {% elsif {{value}} <= 4 %}
+    <p style="background-color:orange; color:white;">{{rendered_value}}</p>
+    {% else %}
+    <p style="background-color:red; color:white;">{{rendered_value}}</p>
+    {% endif %};;
+  }
+
 }
