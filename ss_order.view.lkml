@@ -176,6 +176,11 @@ view: ss_order {
     ]
   }
 
+  measure: user_min_order_date {
+    type: min
+    sql: ${order_raw} ;;
+  }
+
   set: dirill_set {
     fields: [
       customer_name,
