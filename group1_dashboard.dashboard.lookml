@@ -49,24 +49,6 @@
     col: 0
     width: 13
     height: 8
-  - title: TOP10 카테고리 매출 비율
-    name: TOP10 카테고리 매출 비율
-    model: group_1
-    explore: ss_all
-    type: looker_pie
-    fields:
-    - ss_order.sales_sum
-    - ss_items.subcategory
-    sorts:
-    - ss_order.sales_sum desc
-    limit: 10
-    query_timezone: Asia/Seoul
-    series_types: {}
-    listen: {}
-    row: 12
-    col: 13
-    width: 11
-    height: 8
   - title: 주별 매출 추이
     name: 주별 매출 추이
     model: group_1
@@ -86,7 +68,7 @@
       options:
         steps: 5
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 136
+        __LINE_NUM: 87
     show_value_labels: false
     label_density: 25
     label_color: []
@@ -113,7 +95,7 @@
         name: 평균 매출액
         axisId: ss_order.sales_avg
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 157
+        __LINE_NUM: 112
       showLabels: true
       showValues: true
       valueFormat: ''
@@ -121,7 +103,7 @@
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 157
+      __LINE_NUM: 109
     - label: ''
       orientation: bottom
       series:
@@ -129,14 +111,14 @@
         name: 평균 순 매출액
         axisId: ss_order.profit_avg
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 160
+        __LINE_NUM: 128
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 159
+      __LINE_NUM: 125
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -205,14 +187,14 @@
         name: sales
         axisId: ss_order.sales_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 227
+        __LINE_NUM: 204
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 224
+      __LINE_NUM: 201
     - label:
       orientation: right
       series:
@@ -220,14 +202,14 @@
         name: profit
         axisId: ss_order.profit_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 238
+        __LINE_NUM: 219
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 235
+      __LINE_NUM: 216
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -271,7 +253,7 @@
       options:
         steps: 5
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 22
+        __LINE_NUM: 272
     show_value_labels: true
     label_density: 25
     legend_position: center
@@ -307,8 +289,8 @@
     col: 8
     width: 8
     height: 6
-  - name: 평균 구매 금액
-    title: 평균 구매 금액
+  - title: 평균 구매 금액
+    name: 평균 구매 금액
     model: group_1
     explore: ss_all
     type: single_value
@@ -321,7 +303,7 @@
       options:
         steps: 5
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 205
+        __LINE_NUM: 322
     custom_color_enabled: true
     custom_color: ''
     show_single_value_title: true
@@ -357,23 +339,31 @@
       - id: ss_order.sales_avg
         name: 평균 매출액
         axisId: ss_order.sales_avg
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 357
       showLabels: true
       showValues: true
       valueFormat: ''
       unpinAxis: false
       tickDensity: default
       type: linear
+      __FILE: group_1/group1_dashboard.dashboard.lookml
+      __LINE_NUM: 354
     - label: ''
       orientation: bottom
       series:
       - id: ss_order.profit_avg
         name: 평균 순 매출액
         axisId: ss_order.profit_avg
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 369
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
+      __FILE: group_1/group1_dashboard.dashboard.lookml
+      __LINE_NUM: 366
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -395,19 +385,27 @@
     show_silhouette: false
     totals_color: "#808080"
     query_timezone: Asia/Seoul
+    listen: {}
     row: 0
     col: 0
     width: 8
     height: 6
-  - name: add_a_unique_name_1550733335
-    title: 구매 상위 Top10 유저
+  - title: 구매 상위 Top10 유저
+    name: 구매 상위 Top10 유저
     model: group_1
     explore: ss_all
     type: looker_column
-    fields: [ss_order.sales_sum, ss_customers.customer_name, ss_order.order_year]
-    pivots: [ss_order.order_year]
-    fill_fields: [ss_order.order_year]
-    sorts: [ss_order.order_year 0, ss_order.sales_sum desc 0]
+    fields:
+    - ss_order.sales_sum
+    - ss_customers.customer_name
+    - ss_order.order_year
+    pivots:
+    - ss_order.order_year
+    fill_fields:
+    - ss_order.order_year
+    sorts:
+    - ss_order.order_year 0
+    - ss_order.sales_sum desc 0
     limit: 10
     query_timezone: Asia/Seoul
     stacking: normal
@@ -427,12 +425,38 @@
       first_last: first
       num_rows: 0
     hidden_series: []
-    y_axes: [{label: 총 구매 액, orientation: left, series: [{id: 2014 - ss_order.sales_sum,
-            name: '2014', axisId: 2014 - ss_order.sales_sum}, {id: 2015 - ss_order.sales_sum,
-            name: '2015', axisId: 2015 - ss_order.sales_sum}, {id: 2016 - ss_order.sales_sum,
-            name: '2016', axisId: 2016 - ss_order.sales_sum}, {id: 2017 - ss_order.sales_sum,
-            name: '2017', axisId: 2017 - ss_order.sales_sum}], showLabels: true, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    y_axes:
+    - label: 총 구매 액
+      orientation: left
+      series:
+      - id: 2014 - ss_order.sales_sum
+        name: '2014'
+        axisId: 2014 - ss_order.sales_sum
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 430
+      - id: 2015 - ss_order.sales_sum
+        name: '2015'
+        axisId: 2015 - ss_order.sales_sum
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 431
+      - id: 2016 - ss_order.sales_sum
+        name: '2016'
+        axisId: 2016 - ss_order.sales_sum
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 432
+      - id: 2017 - ss_order.sales_sum
+        name: '2017'
+        axisId: 2017 - ss_order.sales_sum
+        __FILE: group_1/group1_dashboard.dashboard.lookml
+        __LINE_NUM: 433
+      showLabels: true
+      showValues: true
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+      __FILE: group_1/group1_dashboard.dashboard.lookml
+      __LINE_NUM: 430
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -452,14 +476,65 @@
     show_totals_labels: true
     show_silhouette: false
     totals_color: "#222222"
-  - name: add_a_unique_name_1550736941
-    title: 월별 신규유저 증감 추이
+    listen: {}
+    row: 20
+    col: 0
+    width: 13
+    height: 8
+  - title: 월별 신규유저 증감 추이
+    name: 월별 신규유저 증감 추이
     model: group_1
     explore: ss_customers
     type: looker_line
-    fields: [ss_customer_order.user_count, ss_customer_order.min_purchase_data_group_month]
-    fill_fields: [ss_customer_order.min_purchase_data_group_month]
-    sorts: [ss_customer_order.min_purchase_data_group_month desc]
+    fields:
+    - ss_customer_order.user_count
+    - ss_customer_order.min_purchase_data_group_month
+    fill_fields:
+    - ss_customer_order.min_purchase_data_group_month
+    sorts:
+    - ss_customer_order.min_purchase_data_group_month desc
     limit: 500
     query_timezone: Asia/Seoul
     series_types: {}
+    listen: {}
+    row: 20
+    col: 13
+    width: 11
+    height: 8
+  - title: TOP10 카테고리 매출 비율
+    name: TOP10 카테고리 매출 비율
+    model: group_1
+    explore: ss_all
+    type: looker_pie
+    fields:
+    - ss_items.subcategory
+    - ss_order.sales_sum
+    sorts:
+    - ss_order.sales_sum desc
+    - ss_items.subcategory
+    limit: 10
+    value_labels: labels
+    label_type: labPer
+    color_range:
+    - "#3EB0D5"
+    - "#B1399E"
+    - "#C2DD67"
+    - "#592EC2"
+    - "#4276BE"
+    - "#72D16D"
+    - "#FFD95F"
+    - "#B32F37"
+    - "#9174F0"
+    - "#E57947"
+    - "#75E2E2"
+    - "#FBB555"
+    show_value_labels: true
+    font_size: 12
+    charts_across:
+    query_timezone: Asia/Seoul
+    series_types: {}
+    listen: {}
+    row: 12
+    col: 13
+    width: 11
+    height: 8
