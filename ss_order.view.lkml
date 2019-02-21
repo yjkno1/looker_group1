@@ -1,5 +1,24 @@
 view: ss_order {
-  sql_table_name: Looker.SS_ORDER ;;
+  #sql_table_name: Looker.SS_ORDER ;;
+
+  derived_table: {
+    sql:  select
+          o.*,
+          c.`Customer Name`,
+          c.Segment,
+          i.`Product Name`,
+          i.Category,
+          i.Manufacturer,
+          i.`Sub-Category`,
+          po.Region,
+          po.City,
+          po.State
+          from SS_ORDER o
+          left join SS_CUSTOMERS c on o.CID = c.CID
+          left join SS_ITEMS i on o.PID = i.PID
+          left join SS_POI po on o.`Postal Code` = po.`Postal Code`
+          ;;
+  }
 
   dimension: cid {
     type: string
@@ -82,6 +101,52 @@ view: ss_order {
     sql: ${TABLE}.`Ship Mode` ;;
   }
 
+  dimension: category {
+    type: string
+    sql: ${TABLE}.Category ;;
+  }
+
+  dimension: manufacturer {
+    type: string
+    sql: ${TABLE}.Manufacturer ;;
+  }
+
+  dimension: product_name {
+    type: string
+    sql: ${TABLE}.`Product Name` ;;
+  }
+
+  dimension: subcategory {
+    type: string
+    sql: ${TABLE}.`Sub-Category` ;;
+  }
+
+  dimension: customer_name {
+    type: string
+    sql: ${TABLE}.`Customer Name` ;;
+  }
+
+  dimension: segment {
+    type: string
+    sql: ${TABLE}.Segment ;;
+  }
+
+  dimension: city {
+    type: string
+    sql: ${TABLE}.City ;;
+  }
+
+  dimension: region {
+    type: string
+    sql: ${TABLE}.Region ;;
+  }
+
+  dimension: state {
+    type: string
+    sql: ${TABLE}.State ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: []
@@ -96,4 +161,33 @@ view: ss_order {
     type: sum
     sql: ${profit} ;;
   }
+
+  measure: profit_avg {
+    type: average
+    sql: ${profit} ;;
+  }
+
+
+  measure: sales_avg {
+    type: average
+    sql: ${sales} ;;
+    drill_fields: [
+      dirill_set*
+    ]
+  }
+
+  set: dirill_set {
+    fields: [
+      customer_name,
+      state,
+      product_name,
+      category,
+      subcategory,
+      manufacturer,
+      sales,
+      quantity,
+      order_date
+    ]
+  }
+
 }
