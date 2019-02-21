@@ -452,3 +452,14 @@
     show_totals_labels: true
     show_silhouette: false
     totals_color: "#222222"
+  - name: add_a_unique_name_1550736941
+    title: 월별 신규유저 증감 추이
+    model: group_1
+    explore: ss_customers
+    type: looker_line
+    fields: [ss_customer_order.user_count, ss_customer_order.min_purchase_data_group_month]
+    fill_fields: [ss_customer_order.min_purchase_data_group_month]
+    sorts: [ss_customer_order.min_purchase_data_group_month desc]
+    limit: 500
+    query_timezone: Asia/Seoul
+    series_types: {}
