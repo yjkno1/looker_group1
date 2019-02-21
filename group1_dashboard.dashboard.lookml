@@ -399,3 +399,56 @@
     col: 0
     width: 8
     height: 6
+  - name: add_a_unique_name_1550733335
+    title: 구매 상위 Top10 유저
+    model: group_1
+    explore: ss_all
+    type: looker_column
+    fields: [ss_order.sales_sum, ss_customers.customer_name, ss_order.order_year]
+    pivots: [ss_order.order_year]
+    fill_fields: [ss_order.order_year]
+    sorts: [ss_order.order_year 0, ss_order.sales_sum desc 0]
+    limit: 10
+    query_timezone: Asia/Seoul
+    stacking: normal
+    show_value_labels: false
+    label_density: 25
+    font_size: 11px
+    legend_position: center
+    hide_legend: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    point_style: none
+    series_types: {}
+    limit_displayed_rows: false
+    limit_displayed_rows_values:
+      show_hide: hide
+      first_last: first
+      num_rows: 0
+    hidden_series: []
+    y_axes: [{label: 총 구매 액, orientation: left, series: [{id: 2014 - ss_order.sales_sum,
+            name: '2014', axisId: 2014 - ss_order.sales_sum}, {id: 2015 - ss_order.sales_sum,
+            name: '2015', axisId: 2015 - ss_order.sales_sum}, {id: 2016 - ss_order.sales_sum,
+            name: '2016', axisId: 2016 - ss_order.sales_sum}, {id: 2017 - ss_order.sales_sum,
+            name: '2017', axisId: 2017 - ss_order.sales_sum}], showLabels: true, showValues: true,
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    x_axis_label: 구매 사용자 순위
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    column_group_spacing_ratio: 0.7
+    show_totals_labels: true
+    show_silhouette: false
+    totals_color: "#222222"
