@@ -177,3 +177,13 @@
     col: 0
     width: 16
     height: 6
+  - name: TOP10 카테고리 매출 비율
+    title: TOP10 카테고리 매출 비율
+    model: group_1
+    explore: ss_all
+    type: looker_pie
+    fields: [ss_order.sales_sum, ss_items.subcategory]
+    sorts: [ss_order.sales_sum desc]
+    limit: 10
+    query_timezone: Asia/Seoul
+    series_types: {}
