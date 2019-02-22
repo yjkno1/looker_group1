@@ -181,6 +181,11 @@ view: ss_order {
     sql: ${order_raw} ;;
   }
 
+  measure: user_uniq_count {
+    type: count_distinct
+    sql:${order_id} ;;
+  }
+
   set: dirill_set {
     fields: [
       customer_name,

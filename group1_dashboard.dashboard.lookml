@@ -538,3 +538,84 @@
     col: 13
     width: 11
     height: 8
+  - name: add_a_unique_name_1550798175
+    title: 카테고리별 매출 구성 비율
+    model: group_1
+    explore: ss_all
+    type: Sunburst
+    fields: [ss_order.category, ss_order.subcategory, ss_order.sales_sum, ss_order.manufacturer]
+    sorts: [ss_order.sales_sum desc]
+    limit: 500
+    query_timezone: Asia/Seoul
+    series_types: {}
+  - name: add_a_unique_name_1550799987
+    title: Untitled Visualization
+    model: group_1
+    explore: ss_all
+    type: Sankey
+    fields: [ss_order.order_year, ss_order.region, ss_order.category, ss_order.sales_sum]
+    sorts: [ss_order.order_year desc]
+    limit: 500
+    query_timezone: Asia/Seoul
+    series_types: {}
+
+
+  - name: add_a_unique_name_1550800828
+    title: Untitled Visualization
+    model: group_1
+    explore: ss_all
+    type: Subtotal
+    fields: [ss_order.order_year, ss_order.category, ss_order.manufacturer, ss_order.count,
+      ss_order.sales_sum]
+    sorts: [ss_order.order_year desc]
+    limit: 500
+    dynamic_fields:
+    - table_calculation: goal
+      label: goal
+      expression: '100000'
+      value_format:
+      value_format_name:
+      _kind_hint: dimension
+      _type_hint: number
+    query_timezone: Asia/Seoul
+    showComparison: false
+    minValue: 0
+    maxValue: 1000
+    circleThickness: 0.05
+    circleFillGap: 0.05
+    circleColor: "#178BCA"
+    waveHeight: 0.05
+    waveCount: 1
+    waveRiseTime: 1000
+    waveAnimateTime: 1800
+    waveRise: true
+    waveHeightScaling: true
+    waveAnimate: true
+    waveColor: "#64518A"
+    waveOffset: 0
+    textVertPosition: 0.5
+    textSize: 1
+    valueCountUp: true
+    displayPercent: true
+    textColor: "#000000"
+    waveTextColor: "#FFFFFF"
+    series_types: {}
+
+  - name: add_a_unique_name_1550801346
+    title: 지역별 구매카테고리 비율
+    model: group_1
+    explore: ss_all
+    type: looker_donut_multiples
+    fields: [ss_order.region, ss_order.sales_sum, ss_order.category]
+    pivots: [ss_order.category]
+    sorts: [ss_order.sales_sum desc 0, ss_order.region, ss_order.category]
+    limit: 10
+    query_timezone: Asia/Seoul
+    value_labels: labels
+    label_type: labPer
+    color_range: ["#3EB0D5", "#B1399E", "#C2DD67", "#592EC2", "#4276BE", "#72D16D",
+      "#FFD95F", "#B32F37", "#9174F0", "#E57947", "#75E2E2", "#FBB555"]
+    show_value_labels: true
+    font_size: 12
+    charts_across:
+    series_types: {}
