@@ -619,3 +619,39 @@
     font_size: 12
     charts_across:
     series_types: {}
+
+  - name: add_a_unique_name_1550803621
+    title: 지역별 1인당 평균 구매액
+    model: group_1
+    explore: ss_all
+    type: looker_map
+    fields: [ss_poi.approx_location, ss_order.average_spend_per_user, ss_order.category,
+      ss_order.state]
+    sorts: [ss_order.average_spend_per_user desc, ss_order.category]
+    limit: 500
+    query_timezone: Asia/Seoul
+    map_plot_mode: points
+    heatmap_gridlines: false
+    heatmap_gridlines_empty: false
+    heatmap_opacity: 0.5
+    show_region_field: true
+    draw_map_labels_above_data: true
+    map_tile_provider: light
+    map_position: custom
+    map_latitude: 40.04443758460859
+    map_longitude: -93.25195312500001
+    map_zoom: 4
+    map_scale_indicator: 'off'
+    map_pannable: true
+    map_zoomable: true
+    map_marker_type: circle
+    map_marker_icon_name: default
+    map_marker_radius_mode: proportional_value
+    map_marker_units: pixels
+    map_marker_proportional_scale_type: linear
+    map_marker_color_mode: fixed
+    show_view_names: true
+    show_legend: true
+    quantize_map_value_colors: true
+    reverse_map_value_colors: false
+    series_types: {}

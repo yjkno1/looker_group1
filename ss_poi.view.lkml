@@ -28,6 +28,23 @@ view: ss_poi {
     sql: ${TABLE}.State ;;
   }
 
+  dimension: latitude {
+    type: number
+    sql: ${TABLE}.latitude ;;
+  }
+
+  dimension: longitude {
+    type: number
+    sql: ${TABLE}.longitude ;;
+  }
+
+  dimension: approx_location {
+    type: location
+    drill_fields: [country,city,region,state]
+    sql_latitude: round(${TABLE}.latitude,1) ;;
+    sql_longitude: round(${TABLE}.longitude,1) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []

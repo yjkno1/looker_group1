@@ -186,6 +186,12 @@ view: ss_order {
     sql:${order_id} ;;
   }
 
+  measure: average_spend_per_user {
+    type: number
+    sql: 1.0 * ${sales_sum} / NULLIF(${user_uniq_count},0) ;;
+  }
+
+
   set: dirill_set {
     fields: [
       customer_name,
