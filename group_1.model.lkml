@@ -2,7 +2,7 @@ connection: "looker_db"
 
 # include all the views
 include: "*.view"
-include: "*.dashboard"
+#include: "*.dashboard"
 
 datagroup: group_1_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
