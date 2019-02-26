@@ -61,6 +61,7 @@
     sorts:
     - ss_poi.state
     limit: 500
+    query_timezone: Asia/Seoul
     stacking: ''
     color_application:
       collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
@@ -68,7 +69,7 @@
       options:
         steps: 5
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 87
+        __LINE_NUM: 69
     show_value_labels: false
     label_density: 25
     label_color: []
@@ -95,7 +96,7 @@
         name: 평균 매출액
         axisId: ss_order.sales_avg
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 112
+        __LINE_NUM: 94
       showLabels: true
       showValues: true
       valueFormat: ''
@@ -103,7 +104,7 @@
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 109
+      __LINE_NUM: 91
     - label: ''
       orientation: bottom
       series:
@@ -111,14 +112,14 @@
         name: 평균 순 매출액
         axisId: ss_order.profit_avg
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 128
+        __LINE_NUM: 110
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 125
+      __LINE_NUM: 107
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -139,7 +140,6 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    query_timezone: Asia/Seoul
     listen: {}
     row: 0
     col: 16
@@ -160,6 +160,7 @@
     sorts:
     - ss_order.order_month desc
     limit: 500
+    query_timezone: Asia/Seoul
     stacking: ''
     show_value_labels: true
     label_density: 25
@@ -187,14 +188,14 @@
         name: sales
         axisId: ss_order.sales_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 204
+        __LINE_NUM: 186
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 201
+      __LINE_NUM: 183
     - label:
       orientation: right
       series:
@@ -202,14 +203,14 @@
         name: profit
         axisId: ss_order.profit_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 219
+        __LINE_NUM: 201
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 216
+      __LINE_NUM: 198
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -229,7 +230,6 @@
     show_null_points: false
     interpolation: linear
     discontinuous_nulls: false
-    query_timezone: Asia/Seoul
     listen: {}
     row: 6
     col: 0
@@ -246,6 +246,7 @@
     sorts:
     - ss_order.count desc
     limit: 10
+    query_timezone: Asia/Seoul
     stacking: ''
     color_application:
       collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
@@ -253,7 +254,7 @@
       options:
         steps: 5
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 272
+        __LINE_NUM: 254
     show_value_labels: true
     label_density: 25
     legend_position: center
@@ -283,7 +284,6 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    query_timezone: Asia/Seoul
     listen: {}
     row: 0
     col: 8
@@ -297,13 +297,14 @@
     fields:
     - ss_order.sales_avg
     limit: 500
+    query_timezone: Asia/Seoul
     color_application:
       collection_id: b43731d5-dc87-4a8e-b807-635bef3948e7
       palette_id: fb7bb53e-b77b-4ab6-8274-9d420d3d73f3
       options:
         steps: 5
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 322
+        __LINE_NUM: 304
     custom_color_enabled: true
     custom_color: ''
     show_single_value_title: true
@@ -340,7 +341,7 @@
         name: 평균 매출액
         axisId: ss_order.sales_avg
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 357
+        __LINE_NUM: 339
       showLabels: true
       showValues: true
       valueFormat: ''
@@ -348,7 +349,7 @@
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 354
+      __LINE_NUM: 336
     - label: ''
       orientation: bottom
       series:
@@ -356,14 +357,14 @@
         name: 평균 순 매출액
         axisId: ss_order.profit_avg
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 369
+        __LINE_NUM: 355
       showLabels: true
       showValues: true
       unpinAxis: false
       tickDensity: default
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 366
+      __LINE_NUM: 352
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -384,7 +385,6 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    query_timezone: Asia/Seoul
     listen: {}
     row: 0
     col: 0
@@ -433,22 +433,22 @@
         name: '2014'
         axisId: 2014 - ss_order.sales_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 430
+        __LINE_NUM: 432
       - id: 2015 - ss_order.sales_sum
         name: '2015'
         axisId: 2015 - ss_order.sales_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 431
+        __LINE_NUM: 437
       - id: 2016 - ss_order.sales_sum
         name: '2016'
         axisId: 2016 - ss_order.sales_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 432
+        __LINE_NUM: 442
       - id: 2017 - ss_order.sales_sum
         name: '2017'
         axisId: 2017 - ss_order.sales_sum
         __FILE: group_1/group1_dashboard.dashboard.lookml
-        __LINE_NUM: 433
+        __LINE_NUM: 447
       showLabels: true
       showValues: true
       unpinAxis: false
@@ -456,7 +456,7 @@
       tickDensityCustom: 5
       type: linear
       __FILE: group_1/group1_dashboard.dashboard.lookml
-      __LINE_NUM: 430
+      __LINE_NUM: 429
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -513,6 +513,7 @@
     - ss_order.sales_sum desc
     - ss_items.subcategory
     limit: 10
+    query_timezone: Asia/Seoul
     value_labels: labels
     label_type: labPer
     color_range:
@@ -531,43 +532,65 @@
     show_value_labels: true
     font_size: 12
     charts_across:
-    query_timezone: Asia/Seoul
     series_types: {}
     listen: {}
-    row: 12
+    row: 36
     col: 13
     width: 11
     height: 8
-  - name: add_a_unique_name_1550798175
-    title: 카테고리별 매출 구성 비율
+  - title: 카테고리별 매출 구성 비율
+    name: 카테고리별 매출 구성 비율
     model: group_1
     explore: ss_all
     type: Sunburst
-    fields: [ss_order.category, ss_order.subcategory, ss_order.sales_sum, ss_order.manufacturer]
-    sorts: [ss_order.sales_sum desc]
+    fields:
+    - ss_order.category
+    - ss_order.subcategory
+    - ss_order.sales_sum
+    - ss_order.manufacturer
+    sorts:
+    - ss_order.sales_sum desc
     limit: 500
     query_timezone: Asia/Seoul
     series_types: {}
-  - name: add_a_unique_name_1550799987
-    title: Untitled Visualization
+    listen: {}
+    row: 28
+    col: 0
+    width: 13
+    height: 8
+  - title: 연도별 지역/카테고리 매출 추이
+    name: 연도별 지역/카테고리 매출 추이
     model: group_1
     explore: ss_all
     type: Sankey
-    fields: [ss_order.order_year, ss_order.region, ss_order.category, ss_order.sales_sum]
-    sorts: [ss_order.order_year desc]
+    fields:
+    - ss_order.order_year
+    - ss_order.region
+    - ss_order.category
+    - ss_order.sales_sum
+    sorts:
+    - ss_order.order_year desc
     limit: 500
     query_timezone: Asia/Seoul
     series_types: {}
-
-
-  - name: add_a_unique_name_1550800828
-    title: Untitled Visualization
+    listen: {}
+    row: 28
+    col: 13
+    width: 11
+    height: 8
+  - title: 연도/카테고리/제조사 별 매출 추이
+    name: 연도/카테고리/제조사 별 매출 추이
     model: group_1
     explore: ss_all
     type: Subtotal
-    fields: [ss_order.order_year, ss_order.category, ss_order.manufacturer, ss_order.count,
-      ss_order.sales_sum]
-    sorts: [ss_order.order_year desc]
+    fields:
+    - ss_order.order_year
+    - ss_order.category
+    - ss_order.manufacturer
+    - ss_order.count
+    - ss_order.sales_sum
+    sorts:
+    - ss_order.order_year desc
     limit: 500
     dynamic_fields:
     - table_calculation: goal
@@ -600,34 +623,65 @@
     textColor: "#000000"
     waveTextColor: "#FFFFFF"
     series_types: {}
-
-  - name: add_a_unique_name_1550801346
-    title: 지역별 구매카테고리 비율
+    listen: {}
+    row: 44
+    col: 0
+    width: 24
+    height: 9
+  - title: 지역별 구매카테고리 비율
+    name: 지역별 구매카테고리 비율
     model: group_1
     explore: ss_all
     type: looker_donut_multiples
-    fields: [ss_order.region, ss_order.sales_sum, ss_order.category]
-    pivots: [ss_order.category]
-    sorts: [ss_order.sales_sum desc 0, ss_order.region, ss_order.category]
+    fields:
+    - ss_order.region
+    - ss_order.sales_sum
+    - ss_order.category
+    pivots:
+    - ss_order.category
+    sorts:
+    - ss_order.sales_sum desc 0
+    - ss_order.region
+    - ss_order.category
     limit: 10
     query_timezone: Asia/Seoul
     value_labels: labels
     label_type: labPer
-    color_range: ["#3EB0D5", "#B1399E", "#C2DD67", "#592EC2", "#4276BE", "#72D16D",
-      "#FFD95F", "#B32F37", "#9174F0", "#E57947", "#75E2E2", "#FBB555"]
+    color_range:
+    - "#3EB0D5"
+    - "#B1399E"
+    - "#C2DD67"
+    - "#592EC2"
+    - "#4276BE"
+    - "#72D16D"
+    - "#FFD95F"
+    - "#B32F37"
+    - "#9174F0"
+    - "#E57947"
+    - "#75E2E2"
+    - "#FBB555"
     show_value_labels: true
     font_size: 12
     charts_across:
     series_types: {}
-
-  - name: add_a_unique_name_1550803621
-    title: 지역별 1인당 평균 구매액
+    listen: {}
+    row: 36
+    col: 0
+    width: 13
+    height: 8
+  - title: 지역별 1인당 평균 구매액
+    name: 지역별 1인당 평균 구매액
     model: group_1
     explore: ss_all
     type: looker_map
-    fields: [ss_poi.approx_location, ss_order.average_spend_per_user, ss_order.category,
-      ss_order.state]
-    sorts: [ss_order.average_spend_per_user desc, ss_order.category]
+    fields:
+    - ss_poi.approx_location
+    - ss_order.average_spend_per_user
+    - ss_order.category
+    - ss_order.state
+    sorts:
+    - ss_order.average_spend_per_user desc
+    - ss_order.category
     limit: 500
     query_timezone: Asia/Seoul
     map_plot_mode: points
@@ -655,3 +709,8 @@
     quantize_map_value_colors: true
     reverse_map_value_colors: false
     series_types: {}
+    listen: {}
+    row: 12
+    col: 13
+    width: 11
+    height: 8
